@@ -6,8 +6,14 @@ import home from "../../img/home.png"
 import vector2 from "../../img/vector2.png"
 import vector3 from "../../img/vector3.png"
 import BookCard from '../BookCard';
+import { useNavigate } from "react-router-dom";
+
+const pages = ['/', 'register', 'login'];
 
 const Navbar = () => {
+    const navigate = useNavigate();
+
+
   return (
     <div>
       <div className="header">
@@ -33,7 +39,7 @@ const Navbar = () => {
               Библиотека
             </li>
           </ul>
-          <button className='btn-voiti'>Войти</button>
+          <button className='btn-voiti' onClick={() => navigate("/login")}>Войти</button>
       </div>
       <BookCard />
     </div>
