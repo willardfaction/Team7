@@ -1,9 +1,15 @@
-import React from 'react'
+import React from "react";
+import BookContextProvider from "./Context/BookContextProvider";
+import MainRoutes from "./MainRoutes";
 
 const App = () => {
   return (
-    <div>App</div>
-  )
-}
+    <>
+      <BookContextProvider>
+        <MainRoutes />
+      </BookContextProvider>
+    </>
+  );
+};
 
-export default App
+export default App;
