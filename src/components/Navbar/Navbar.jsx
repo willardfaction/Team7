@@ -8,10 +8,12 @@ import vector3 from "../../img/vector3.png"
 import BookCard from '../BookCard';
 import { useNavigate } from "react-router-dom";
 
+
 const pages = ['/', 'register', 'login'];
 
 const Navbar = () => {
     const navigate = useNavigate();
+
 
 
   return (
