@@ -29,7 +29,7 @@ const BookContextProvider = (props) => {
     const [state, dispatch] = useReducer(reducer, INIT_STATE);
     const location = useLocation();
 
-      // create food
+      // create book
   async function addBook(newBook) {
     try {
       await axios.post(API, newBook);
@@ -39,7 +39,7 @@ const BookContextProvider = (props) => {
     }
     }
     
-      // read food
+      // read book
   async function readBook() {
     console.log("reading Book");
     const res = await axios(`${API}${location.search}`);
@@ -48,6 +48,15 @@ const BookContextProvider = (props) => {
       payload: res,
     });
   }
+
+    // read one book
+    async function readOneBook(id) {
+      const { data } = await axios(`${API}/${id}`);
+      dispatch({
+        type: "GET_ONE_PRODUCT",
+        payload: data,
+      });
+    }
 
     let cloud = {
         addBook,
