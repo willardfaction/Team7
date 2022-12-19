@@ -1,12 +1,28 @@
-.register-form {
+.fon {
   position: absolute;
+  width: 1400px;
+  height: 1000px;
+  background: #33333393;
+  /* opacity: 0.7; */
+  z-index: 1;
+}
+
+.register-form {
+  font-family: "Roboto";
+  position: relative;
   width: 400px;
   height: 545px;
-  background: #f1eaea;
+  background-color: white;
   border-radius: 8px;
   justify-content: center;
   left: 37%;
   top: 40px;
+}
+
+.close {
+  position: relative;
+  left: 50%;
+  top: 8px;
 }
 
 .title-vhod {
@@ -15,7 +31,7 @@
   height: 545px;
   left: 20px;
   top: 5px;
-  font-family: "Montserrat";
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 600;
   font-size: 35px;
@@ -24,17 +40,17 @@
 }
 
 .title-email {
-  position: absolute;
+  position: relative;
   width: 400px;
   height: 545px;
   left: 20px;
-  top: 85px;
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 17px;
-  line-height: 22px;
-  color: #000000;
+  top: 60px;
+  font-family: "Roboto";
+  /* font-style: normal; */
+  /* font-weight: 400; */
+  font-size: 15px;
+  /* line-height: 22px; */
+  /* color: #000000; */
 }
 
 .inp-email {
@@ -46,7 +62,7 @@
   gap: 10px;
   position: absolute;
   width: 339px;
-  height: 30px;
+  height: 25px;
   left: 20px;
   top: 135px;
   background: #e3e3e3;
@@ -60,9 +76,9 @@
   height: 545px;
   left: 20px;
   top: 185px;
-  font-family: "Montserrat";
-  font-weight: 400;
-  font-size: 17px;
+  font-family: "Roboto";
+  /* font-weight: 400; */
+  font-size: 15px;
   /* line-height: 22px; */
 }
 
@@ -75,27 +91,12 @@
   gap: 10px;
   position: absolute;
   width: 339px;
-  height: 30px;
+  height: 25px;
   left: 20px;
   top: 235px;
   background: #e3e3e3;
   border-radius: 4px;
   border: none;
-}
-
-.forgot-pass {
-  position: absolute;
-  left: 67%;
-  right: 0%;
-  top: 55%;
-  bottom: 0%;
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 20px;
-  text-decoration-line: underline;
-  color: #0f5ed5;
 }
 
 .voiti-btn {
@@ -108,7 +109,7 @@
   gap: 10px;
   position: absolute;
   width: 359px;
-  height: 50px;
+  height: 45px;
   left: 20px;
   top: 338px;
   background: #9dbaf3;
@@ -124,26 +125,6 @@
   transition: 0.3s;
 }
 
-.register-btn {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  gap: 10px;
-  position: absolute;
-  width: 359px;
-  height: 50px;
-  left: 20px;
-  top: 450px;
-  background: white;
-  font-size: 16px;
-  border: 1px solid #9dbaf3;
-  border-radius: 8px;
-  transition: 0.3s;
-}
-
 .login-btn {
   box-sizing: border-box;
   display: flex;
@@ -154,7 +135,7 @@
   gap: 10px;
   position: absolute;
   width: 359px;
-  height: 50px;
+  height: 45px;
   left: 20px;
   top: 410px;
   background: white;
