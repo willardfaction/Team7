@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export const authContext = React.createContext();
 export const useAuth = () => useContext(authContext);
@@ -7,6 +8,8 @@ export const useAuth = () => useContext(authContext);
 const API = "";
 
 const AuthContextProvider = ({ children }) => {
+  const navigate = useNavigate();
+
   const [currentUser, setCurrentUser] = useState(false);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -17,8 +20,13 @@ const AuthContextProvider = ({ children }) => {
     try {
       const res = await axios.post(`${API}/account/register/`, formData);
       console.log(res);
+      snackbar()
+      setTimeout(() => {
+       navigate('/login')
+      }, 3000);
     } catch (err) {
       console.log(err);
+      snackbar_error()
       setError(Object.values(err.response.data).flat(2));
     } finally {
       setLoading(false);
@@ -58,6 +66,19 @@ const AuthContextProvider = ({ children }) => {
     }
   }
 
+  function snackbar() {
+    var x = document.getElementById("snackbar");
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+  }
+
+  function snackbar_error() {
+    var x = document.getElementById("snackbar_error");
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+  }
+
+
   async function handleLogin(formData, logInpValue, navigate) {
     setLoading(true);
     try {
@@ -66,10 +87,13 @@ const AuthContextProvider = ({ children }) => {
       localStorage.setItem("tokens", JSON.stringify(res.data));
       localStorage.setItem("email", logInpValue);
       setCurrentUser(logInpValue);
-      navigate("/");
+      snackbar()
+      setTimeout(() => {
+        navigate('/')
+       }, 3000);
     } catch (err) {
       console.log(err);
-      alert("Inputs are incorrect!");
+      snackbar_error()
       setError([err.response.data.detail]);
     } finally {
       setLoading(false);
