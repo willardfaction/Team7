@@ -1,12 +1,13 @@
 import React from 'react';
 import Routing from './Routing';
-import Navbar from './components/Navbar/Navbar';
+import AuthContextProvider from './components/contexts/authContext';
 
 const App = () => {
   return (
     <>
-      {/* <Navbar /> */}
-      <Routing />
+      <AuthContextProvider>
+        <Routing />
+      </AuthContextProvider>
     </>
   )
 }

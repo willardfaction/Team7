@@ -61,16 +61,11 @@ const Navbar = () => {
     const navigate = useNavigate();
 
 
+
   return (
     <div>
       <div className="header">
         <img src={logo} alt="logo" className="logo-title" />
-        {/* <input
-            className="search-inp"
-            type="text"
-            placeholder="Search..."
-            label="Search"
-          /> */}
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -80,7 +75,6 @@ const Navbar = () => {
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
-          {/* <button className='search-btn'>{search}</button> */} 
           <img src={home} alt="home" className="home-icon" onClick={() => navigate("/")}/>
           <img src={vector2} alt="vector2" className="vector2-icon" onClick={() => navigate("/person")}/>
           <img src={vector3} alt="vector3" className="vector3-icon" onClick={() => navigate("/library")}/>
