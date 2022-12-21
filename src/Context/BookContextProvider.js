@@ -1,35 +1,36 @@
-import React, { createContext,useReducer  } from "react";
+import React, { createContext, useReducer } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 
 export const bookContext = createContext(); // облако
 const API = "http://localhost:8000/books";
+// http://172.20.10.2:8080/api/books/top
 
 const INIT_STATE = {
-    bookss: null,
-    bookDetails: null,
-    pageTotalCount: 1,
+  books: null,
+  bookDetails: null,
+  pageTotalCount: 1,
 };
 function reducer(prevState, action) {
-    switch (action.type) {
-      case "GET_PRODUCT":
-        return {
-          ...prevState,
-          book: action.payload.data,
-          pageTotalCount: Math.ceil(action.payload.headers["x-total-count"] / 3),
-        };
-      case "GET_ONE_PRODUCT":
-        return { ...prevState, foodDetails: action.payload };
-      default:
-        return prevState;
-    }
+  switch (action.type) {
+    case "GET_PRODUCT":
+      return {
+        ...prevState,
+        book: action.payload.data,
+        pageTotalCount: Math.ceil(action.payload.headers["x-total-count"] / 3),
+      };
+    case "GET_ONE_PRODUCT":
+      return { ...prevState, bookDetails: action.payload };
+    default:
+      return prevState;
   }
+}
 
 const BookContextProvider = (props) => {
-    const [state, dispatch] = useReducer(reducer, INIT_STATE);
-    const location = useLocation();
+  const [state, dispatch] = useReducer(reducer, INIT_STATE);
+  const location = useLocation();
 
-      // create book
+  // create book
   async function addBook(newBook) {
     try {
       await axios.post(API, newBook);
@@ -37,9 +38,9 @@ const BookContextProvider = (props) => {
       console.log(error);
       return;
     }
-    }
-    
-      // read book
+  }
+
+  // read book
   async function readBook() {
     console.log("reading Book");
     const res = await axios(`${API}${location.search}`);
@@ -49,24 +50,24 @@ const BookContextProvider = (props) => {
     });
   }
 
-    // read one book
-    async function readOneBook(id) {
-      const { data } = await axios(`${API}/${id}`);
-      dispatch({
-        type: "GET_ONE_PRODUCT",
-        payload: data,
-      });
-    }
+  // read one book
+  // async function readOneBook(id) {
+  //   const { data } = await axios(`${API}/${id}`);
+  //   dispatch({
+  //     type: "GET_ONE_PRODUCT",
+  //     payload: data,
+  //   });
+  // }
 
-    let cloud = {
-        addBook,
-        readBook,
-        booksArr: state.book
-      };
-    
-      return (
-        <bookContext.Provider value={cloud}>{props.children}</bookContext.Provider>
-      );
-    };
-    
-    export default BookContextProvider;
+  let cloud = {
+    addBook,
+    readBook,
+    booksArr: state.book,
+  };
+
+  return (
+    <bookContext.Provider value={cloud}>{props.children}</bookContext.Provider>
+  );
+};
+
+export default BookContextProvider;

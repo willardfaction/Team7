@@ -22,6 +22,8 @@ const BookList = () => {
 
 
 
+
+
   
 
 
@@ -33,7 +35,7 @@ const BookList = () => {
           <div className="d-flex align-items-center justify-content-center gap-4 mb-4">     
            <Link to = '/addBook'>
        <button className='d-flex align-items-end gap-2'>   
-                   AddFood
+                   AddBook
               </button>
               </Link> 
                       </div> 

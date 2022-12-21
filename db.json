@@ -15,6 +15,22 @@
       "price": 1211,
       "img1": "https://sun9-22.userapi.com/impf/c845124/v845124495/141ff9/cjunYairqzE.jpg?size=690x1080&quality=96&sign=6ad76c12fcb6d4bd9cc23e517346ebeb&c_uniq_tag=VJMNg-VZucWTuAClGXpd3Bj5yf3tBQcMEuDi47SMsmk&type=album",
       "id": 2
+    },
+    {
+      "category": "Пушкин",
+      "title": "Евгений Онегин",
+      "description": "яывыапролдж.д",
+      "price": 12,
+      "img1": "https://lingvostranovedcheskiy.academic.ru/pictures/lingvostranovedcheskiy/120-233_(128-241)_img_288.jpg",
+      "id": 3
+    },
+    {
+      "category": "Пушкин",
+      "title": "Евгений Онегин",
+      "description": "яывыапролдж.д",
+      "price": 12,
+      "img1": "https://lingvostranovedcheskiy.academic.ru/pictures/lingvostranovedcheskiy/120-233_(128-241)_img_288.jpg",
+      "id": 4
     }
   ]
 }
