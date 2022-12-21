@@ -1,15 +1,15 @@
-import React from "react";
-import BookContextProvider from "./Context/BookContextProvider";
-import MainRoutes from "./MainRoutes";
+import React from 'react';
+import Routing from './Routing';
+import AuthContextProvider from './components/contexts/authContext';
 
 const App = () => {
   return (
     <>
-      <BookContextProvider>
-        <MainRoutes />
-      </BookContextProvider>
+      <AuthContextProvider>
+        <Routing />
+      </AuthContextProvider>
     </>
-  );
-};
+  )
+}
 
-export default App;
+export default App

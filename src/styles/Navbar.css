@@ -14,7 +14,7 @@
   width: 122px;
   height: 25px;
   left: 20px;
-  top: 55px;
+  top: 50px;
 }
 
 .search-inp {
@@ -28,7 +28,7 @@
   width: 300px;
   height: 50px;
   left: 170px;
-  top: 35px;
+  top: 30px;
   background: #f6f1f1;
   border: none;
   border-radius: 1px;
@@ -36,19 +36,6 @@
 
 .search-inp:hover {
   outline: 0.5px solid rgb(134, 182, 197);
-}
-
-.search-btn {
-  width: 26px;
-  height: 26px;
-  background: #909090;
-  /* z-index: 1; */
-
-  /* Inside auto layout */
-
-  flex: none;
-  order: 0;
-  flex-grow: 0;
 }
 
 .home-icon {
