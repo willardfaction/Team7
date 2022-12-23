@@ -4,8 +4,8 @@ export const fetchBooks = createAsyncThunk(
   'books/fetchTodos',
   async function (_, { rejectWithValue }) {
     try {
-      const res = fetch(
-        'http://elibrary-env.eba-8chmdsyi.us-east-1.elasticbeanstalk.com/api/books',
+      const res = await fetch(
+        'http://elibrary-env.eba-8chmdsyi.us-east-1.elasticbeanstalk.com/api/books/search?value=Горд',
       );
 
       if (!res.ok) {
@@ -38,7 +38,8 @@ const addBooks = createSlice({
       state.books = [...action.payload];
     },
     [fetchBooks.rejected]: (state, action) => {
-      (state.status = 'rejected'), (state.error = action.payload);
+      state.status = 'rejected';
+      state.error = action.payload;
     },
   },
 });
