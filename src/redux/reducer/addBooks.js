@@ -5,7 +5,7 @@ export const fetchBooks = createAsyncThunk(
   async function (_, { rejectWithValue }) {
     try {
       const res = await fetch(
-        'http://elibrary-env.eba-8chmdsyi.us-east-1.elasticbeanstalk.com/api/books/search?value=Горд',
+        'http://elibrary-env.eba-8chmdsyi.us-east-1.elasticbeanstalk.com/api/books/new',
       );
 
       if (!res.ok) {
