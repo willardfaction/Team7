@@ -1,8 +1,9 @@
 .fon {
   position: absolute;
   width: 1400px;
-  height: 1000px;
+  height: 1100px;
   background: #33333393;
+  bottom: 100px;
   /* opacity: 0.7; */
   z-index: 1;
 }

@@ -1,0 +1,147 @@
+.title-TopKnigi {
+  position: absolute;
+  left: 4.8%;
+  right: 16%;
+  top: 165px;
+  font-family: "Roboto";
+  font-size: 34px;
+  line-height: 41px;
+}
+
+.App {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.slick-slide > div {
+  margin: 0 10px;
+}
+
+.slick-list {
+  margin: 0 -10px;
+  width: 100%;
+}
+
+.slick-slider {
+  width: 1200px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.slider {
+  position: absolute;
+  top: 260px;
+  left: 80px;
+  overflow: hidden;
+  border-radius: 8px;
+  width: 1200px;
+  height: 320px;
+}
+
+.card {
+  position: relative;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  /* width: 250px; */
+  height: 420px;
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+.card-top h1 {
+  font-size: 1rem;
+  margin: 10 15px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.card-top > img {
+  position: relative;
+  width: 200px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  top: 9px;
+  left: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.card-bottom {
+  padding: 10px 20px;
+}
+.slick-next {
+  background-color: black;
+  position: absolute;
+  left: 1185px;
+  top: 140px;
+  z-index: 1;
+}
+
+.slick-prev {
+  background-color: black;
+  position: absolute;
+  left: 0px;
+  right: 50px;
+  top: 140px;
+  z-index: 1;
+}
+
+.slick-track {
+  width: 200px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn-read {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 135px;
+  height: 30px;
+  top: 282px;
+  font-size: 14px;
+  color: white;
+  border: 1px solid #9dbaf3;
+  background-color: #9dbaf3;
+  border-radius: 7px;
+  transition: 0.3s;
+}
+
+.number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 275px;
+  margin-left: 153px;
+  font-size: 15px;
+}
+
+.star {
+  position: relative;
+  margin-left: 165px;
+  bottom: 15px;
+}
+
+.new {
+  position: relative;
+  margin-top: 440px;
+  margin-right: 1300px;
+}
+
+.title-TopKnigi2 {
+  position: absolute;
+  left: 4.8%;
+  right: 16%;
+  top: 610px;
+  font-family: "Roboto";
+  font-size: 34px;
+  line-height: 41px;
+}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 // import '../../styles/Navbar.css'
 // import { useNavigate } from "react-router-dom";
 // import "../../styles/BookCard.css"
@@ -28,7 +28,6 @@ const DetailsPage = () => {
   return (
     <div>
       <h2 className='title-TopKnigi'>Топ книги</h2>
-
       {/* <div className='cards'>
         <div className='card'>
             <div className='gray-fon'>

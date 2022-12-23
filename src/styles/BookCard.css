@@ -74,12 +74,10 @@
 }
 
 .btn-read {
-  /* display: flex;
+  display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
-  padding: 10px;
-  gap: 10px; */
+  gap: 10px;
 
   position: absolute;
   width: 260px;

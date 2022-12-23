@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 import SearchIcon from '@mui/icons-material/Search';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
-
+import SlickSlider from '../../components/SimpleSlider/SlickSlider'
 
 
 
@@ -91,7 +91,8 @@ const Navbar = () => {
           </ul>
           <button className='btn-voiti' onClick={() => navigate("/login")}>Войти</button>
       </div>
-      <BookCard />
+      {/* <BookCard /> */}
+      <SlickSlider/>
     </div>
   )
 }

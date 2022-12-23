@@ -8,6 +8,7 @@ import RestorePage from './components/pages/RestorePage';
 import PersonPage from './components/pages/PersonPage';
 import LibraryPage from './components/pages/LibraryPage';
 import DetailsPage from './components/pages/DetailsPage';
+import TopBookPage from './components/pages/TopBookPage';
 
 const PAGES_ROUTES = [
     {
@@ -49,6 +50,11 @@ const PAGES_ROUTES = [
         link: "/detail",
         element: <DetailsPage />,
         id: 8,
+      },
+      {
+        link: "/topbook",
+        element: <TopBookPage />,
+        id: 9,
       },
 ]
 
