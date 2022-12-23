@@ -3,13 +3,13 @@ import star from '../../images/icons/staricon.png';
 import book from '../../images/img/book.png';
 import './books.scss';
 
-function Books() {
+function Books({obj}) {
   return (
     <li className='books__lists'>
-      <img className='book-img' src={book} alt='book' />
+      <img className='book-img' src={obj.image_url} alt='book' />
       <div className='book-data'>
-        <p className='book__name'>«Успех или успеть»</p>
-        <p className='book__author'>Алексей Гончаров</p>
+        <p className='book__name'>{obj.name}</p>
+        <p className='book__author'>{obj.author}</p>
       </div>
       <div className='book-star'>
         <button className='book-btn'>Посмотреть</button>

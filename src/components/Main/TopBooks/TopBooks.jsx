@@ -1,24 +1,24 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Books from '../Books';
 import next from '../../../images/icons/nextslider.png';
 import back from '../../../images/icons/backslider.png';
 import './topbooks.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchBooks } from '../../../redux/reducer/addBooks';
+import { bookContext } from '../../contexts/bookContext';
 
 function TopBooks() {
-  const dispatch = useDispatch();
-  const dataBooks = useSelector((state) => state.books.books);
-  console.log(dataBooks);
+  const { readTopBook,topBooks } = useContext(bookContext);
 
   useEffect(() => {
-    dispatch(fetchBooks());
-  }, [dispatch]);
-  const arr = [1, 2, 3, 4, 5];
+    readTopBook();
+  }, []);
+
   return (
     <div className='books'>
       <h2 className='books__title'>Топ книги</h2>
-      <ul className='books__items'>{arr.length && arr.map((item) => <Books key={item} />)}</ul>
+      <ul className='books__items'>
+        {topBooks ? topBooks.map((item) => <Books obj={item} />) : null}</ul>
       <img src={next} alt='next' className='next' />
       <img src={back} alt='back' className='back' />
     </div>

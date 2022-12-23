@@ -1,30 +1,44 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export const authContext = React.createContext();
 export const useAuth = () => useContext(authContext);
 
-const API = "";
+const API = "http://elibrary-env.eba-8chmdsyi.us-east-1.elasticbeanstalk.com/api";
 
 const AuthContextProvider = ({ children }) => {
+  const navigate = useNavigate();
+
   const [currentUser, setCurrentUser] = useState(false);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useState();
 
-  async function handleRegister(formData) {
-    setLoading(true);
+  const config = {
+    headers: { 'Content-Type': 'application/json' }
+};
+
+  async function handleRegister(formData, event) {
     try {
-      const res = await axios.post(`${API}/account/register/`, formData);
+   
+      const res = await axios.post(`${API}/accounts/register`,   formData, config );
+   
       console.log(res);
+      snackbar()
+      setTimeout(() => {
+       navigate('/login')
+      }, 3000);
     } catch (err) {
       console.log(err);
+      snackbar_error()
       setError(Object.values(err.response.data).flat(2));
     } finally {
       setLoading(false);
     }
   }
 
+  
   async function getOneUser(email) {
     try {
       const res = await axios(`${API}/account/user/${email}/`);
@@ -58,18 +72,35 @@ const AuthContextProvider = ({ children }) => {
     }
   }
 
-  async function handleLogin(formData, logInpValue, navigate) {
+  function snackbar() {
+    var x = document.getElementById("snackbar");
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+  }
+
+  function snackbar_error() {
+    var x = document.getElementById("snackbar_error");
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+  }
+
+
+  async function handleLogin(formData, logInpValue, navigate,) {
     setLoading(true);
     try {
-      const res = await axios.post(`${API}/account/login/`, formData);
+      const res = await axios.post(`${API}/accounts/login/`, formData, config);
       console.log(res);
       localStorage.setItem("tokens", JSON.stringify(res.data));
       localStorage.setItem("email", logInpValue);
       setCurrentUser(logInpValue);
-      navigate("/");
+      setUser(res.data);
+      snackbar()
+      setTimeout(() => {
+        navigate('/')
+       }, 3000);
     } catch (err) {
       console.log(err);
-      alert("Inputs are incorrect!");
+      snackbar_error()
       setError([err.response.data.detail]);
     } finally {
       setLoading(false);
