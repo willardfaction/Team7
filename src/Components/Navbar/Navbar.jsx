@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import '../../styles/Navbar.css'
 import logo from "../../img/logo.png"
 import search from "../../img/search.png"
@@ -10,6 +10,10 @@ import { useNavigate } from "react-router-dom";
 import SearchIcon from '@mui/icons-material/Search';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
+import { authContext } from '../contexts/authContext';
+import PersonIcon from '@mui/icons-material/Person';
+import { bookContext } from '../contexts/bookContext';
+import SearchCard from '../pages/SearchCard';
 
 
 
@@ -58,7 +62,15 @@ const Search = styled('div')(({ theme }) => ({
 
 
 const Navbar = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  const { currentUser, user } = useContext(authContext);
+  const { searchArray,searchBook } = useContext(bookContext);
+  const [searchValue, setSearchValue] = useState('');
+
+  useEffect(() => {
+    searchBook(searchValue)
+  },[searchValue])
+
 
 
 
@@ -72,9 +84,17 @@ const Navbar = () => {
             </SearchIconWrapper>
             <StyledInputBase
               placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
+              inputProps={{ 'aria-label': 'search' }} value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
             />
-          </Search>
+        </Search>
+        {searchArray ? searchArray.map((item) => (
+          <div className='search'>
+          <SearchCard obj = {item} />
+          </div>
+        ))
+        :null}
+
           <img src={home} alt="home" className="home-icon" onClick={() => navigate("/")}/>
           <img src={vector2} alt="vector2" className="vector2-icon" onClick={() => navigate("/person")}/>
           <img src={vector3} alt="vector3" className="vector3-icon" onClick={() => navigate("/library")}/>
@@ -88,10 +108,12 @@ const Navbar = () => {
             <li className="navbar-item" onClick={() => navigate("/library")}>
               Библиотека
             </li>
-          </ul>
-          <button className='btn-voiti' onClick={() => navigate("/login")}>Войти</button>
+        </ul>
+        {/* {currentUser ?
+          <div className='btn-voi'><img className='btn-img'   src={user.avatar_url} />
+          <span>{currentUser}</span></div>
+        : <button className='btn-voiti' onClick={() => navigate("/login")}>Войти</button>} */}
       </div>
-      <BookCard />
     </div>
   )
 }

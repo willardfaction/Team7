@@ -1,6 +1,6 @@
 .header {
   position: absolute;
-  width: 1240px;
+  width: 97%;
   height: 125px;
   left: 60px;
   top: 31px;
@@ -104,4 +104,35 @@
 .btn-voiti:hover {
   box-shadow: 0 0 4px rgb(25, 19, 80);
   transition: 0.3s;
+}
+
+.btn-voi{
+  /* display: flex; */
+
+  padding: 10px;
+  gap: 10px;
+  position: absolute;
+ 
+  left: 85%;
+  top: 30px;
+  text-align: center;
+
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  transition: 0.3s;
+}
+.btn-img {
+  width: 35px;
+  height: 35px;
+  margin-bottom: 0;
+}
+.search{
+border: 1px solid #9dbaf3;
+background-color: #f6f1f1;
+width: 300px;
+margin-left: 160px;
+margin-top: 50px;
+top: 100px;
+
 }

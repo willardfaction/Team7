@@ -49,10 +49,10 @@ const RegisterPage = () => {
     <p className='title-email-pochta'>Ваша электронная почта:</p>
     <input type="text" className='inp-email-pochta' placeholder='Введите почту' value={regEmailInpValue}  onChange={e => setRegEmailInpValue(e.target.value)}/>
     <p className='title-passwords'>Придумайте пароль, пожалуйста:</p>
-    <input type="text" className='inp-passwords' placeholder='Введите'/>
-    <button className='registr-voiti-btn'>Регистрация</button>
+    <input type="text" className='inp-passwords' placeholder='Введите' value={regPasswordInpValue} onChange={e => setRegPasswordInpValue(e.target.value)}/>
+    <button className='registr-voiti-btn' onClick={createUser}>Регистрация</button>
     <button className='have-accaunt-btn' onClick={() => navigate("/login")}>Уже есть аккаунт?</button>
-    <div id="snackbar">Успешная регистрация! Подождите немного теперь...</div>
+    <div id="snackbar">Успешная регистрация! Активируйте свой аккаунт теперь.</div>
     <div id="snackbar_error">Неправильные данные!</div>
  </div>
  </div>
