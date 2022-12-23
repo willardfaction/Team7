@@ -1,11 +1,17 @@
+// import "../../Team7/slick/slick.css"; 
+// import "../../Team7/slick/slick-theme.css";
+
 import React from 'react';
-import Navbar from './components/Navbar/Navbar';
+import Routing from './Routing';
+import AuthContextProvider from './components/contexts/authContext';
 
 const App = () => {
   return (
-    <div>
-      <Navbar />
-    </div>
+    <>
+      <AuthContextProvider>
+        <Routing />
+      </AuthContextProvider>
+    </>
   )
 }
 
