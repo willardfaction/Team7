@@ -65,7 +65,9 @@ function Header() {
 
   useEffect(() => {
     searchBook(searchValue)
-  },[searchValue])
+  }, [searchValue])
+  
+
 
   return (
     <header className='header'>
@@ -95,7 +97,7 @@ function Header() {
             <img src={home} alt='homeicon' />
             <span>Главная</span>
           </NavLink>
-          <NavLink to={'/private'} className='list'>
+          <NavLink to={'/personpage'} className='list'>
             <img src={usericon} alt='usericon' />
             <span>Личный кабинет</span>
           </NavLink>
@@ -107,8 +109,8 @@ function Header() {
       </nav>
       
       {currentUser ? 
-      <div className='btn-voi'><img className='btn-img'   src={user.avatar_url} />
-          <span>{currentUser}</span></div>
+      <div className='btn-voi'><img className='btn-img'   src={user.avatar_url} /><br></br>
+          <span>{user.username}</span></div>
         :
         <button onClick={() => navigate('/login')} className='header__button'>
           Войти

@@ -18,7 +18,7 @@ function NewBooks() {
     <div className='books'>
       <h2 className='books__title'>Новинки</h2>
       <ul className='books__items'>
-        {newBooks ? newBooks.map((item) => <Books obj={item} />) : null}</ul>
+        {newBooks ? newBooks.map((item) => <Books  obj={item} />) : null}</ul>
       {page+1 == totalPages ? null :<img src={next} alt='next' className='next' onClick={(e) => setPage(page+1)} />}
       {page > 0 ? <img src={back} alt='back' className='back' onClick={(e) => setPage(page-1)} /> : null}
     </div>  

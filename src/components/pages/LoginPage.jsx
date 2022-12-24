@@ -45,7 +45,7 @@ const LoginPage = () => {
         <p className='title-email'>Почта или телефон:</p>
         <input type="text" className='inp-email-voiti' placeholder='Введите почту' value={logInpValue} onChange={e => setLogInpValue(e.target.value)}/>
         <p className='title-password-voiti'>Пароль:</p>
-        <input type="text" className='inp-password-voiti' placeholder='Введите пароль' value={passwordInpValue} onChange={e => setPasswordInpValue(e.target.value)}/>
+        <input type="password" className='inp-password-voiti' placeholder='Введите пароль' value={passwordInpValue} onChange={e => setPasswordInpValue(e.target.value)}/>
         <a className='forgot-pass' href="/rest">Забыли пароль?</a>
         <button className='voiti-btn' onClick={loginUser}>Войти</button>
         <p className='title-qu'>Еще не зарегистрированы?</p>

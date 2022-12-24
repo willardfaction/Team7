@@ -9,7 +9,7 @@ const RestPage = () => {
 
   return (
     <>
-    <div className='fon'>
+      <div className='fon' style={{ background: "none" }}>
     <div className="rest-form">
     <CloseIcon className='close' style={{left: '368px', top: '8px'}} onClick={() => navigate("/")}/>
     <h2 className='title-rest'>Сброс пароля</h2>
