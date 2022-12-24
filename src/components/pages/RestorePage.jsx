@@ -1,7 +1,6 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
 import "../../styles/Restore.css"
-import Navbar from '../Navbar/Navbar';
 import CloseIcon from '@mui/icons-material/Close';
 import { authContext } from '../contexts/authContext';
 import { useState } from "react";
@@ -34,7 +33,6 @@ const RestorePage = () => {
   }
   return (
     <>
-    <Navbar />
     <div className='fon'>
     <div className="restore-form">
     <CloseIcon className='close' style={{left: '368px', top: '8px'}} onClick={() => navigate("/")}/>

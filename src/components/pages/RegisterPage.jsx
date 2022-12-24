@@ -3,7 +3,7 @@ import "../../styles/Register.css";
 import { useNavigate } from "react-router-dom";
 import { authContext, useAuth } from '../contexts/authContext';
 import CloseIcon from '@mui/icons-material/Close';
-import Navbar from '../Navbar/Navbar';
+
 
 const RegisterPage = () => {
     const navigate = useNavigate();
@@ -39,20 +39,22 @@ const RegisterPage = () => {
 
   return (
     <>
-    <Navbar/>
-    <div className='fon'>
+    <div className='fon' style={{background:"none"}}>
     <div className="register-form">
-    <CloseIcon className='close' style={{left: '368px', top: '8px'}} onClick={() => navigate("/")}/>
+    <button className='close' style={{ left: '368px', top: '8px', border:'none', background:'none' }}
+              onClick={() => navigate("/")}>
+              <CloseIcon    />
+            </button>
     <h2 className='title-vhod'>Регистрация</h2>
     <p className='title-email-accaunt'>Ваше имя аккаунта:</p>
     <input type="text" className='inp-email-accaunt' placeholder='Введите имя аккаунта' value={regLogInpValue}  onChange={e => setRegLogInpValue(e.target.value)}/>
     <p className='title-email-pochta'>Ваша электронная почта:</p>
     <input type="text" className='inp-email-pochta' placeholder='Введите почту' value={regEmailInpValue}  onChange={e => setRegEmailInpValue(e.target.value)}/>
     <p className='title-passwords'>Придумайте пароль, пожалуйста:</p>
-    <input type="text" className='inp-passwords' placeholder='Введите'/>
-    <button className='registr-voiti-btn'>Регистрация</button>
+    <input type="text" className='inp-passwords' placeholder='Введите' value={regPasswordInpValue} onChange={e => setRegPasswordInpValue(e.target.value)}/>
+    <button className='registr-voiti-btn' onClick={createUser}>Регистрация</button>
     <button className='have-accaunt-btn' onClick={() => navigate("/login")}>Уже есть аккаунт?</button>
-    <div id="snackbar">Успешная регистрация! Подождите немного теперь...</div>
+    <div id="snackbar">Успешная регистрация! Активируйте свой аккаунт теперь.</div>
     <div id="snackbar_error">Неправильные данные!</div>
  </div>
  </div>
@@ -60,4 +62,4 @@ const RegisterPage = () => {
   )
 }
 
-export default RegisterPage
+export default RegisterPage;

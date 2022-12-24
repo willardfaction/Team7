@@ -1,6 +1,5 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
-import Navbar from '../Navbar/Navbar';
 import "../../styles/Rest.css"
 import CloseIcon from '@mui/icons-material/Close';
 
@@ -10,7 +9,6 @@ const RestPage = () => {
 
   return (
     <>
-    <Navbar />
     <div className='fon'>
     <div className="rest-form">
     <CloseIcon className='close' style={{left: '368px', top: '8px'}} onClick={() => navigate("/")}/>
