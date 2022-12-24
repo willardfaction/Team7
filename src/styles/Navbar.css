@@ -1,0 +1,108 @@
+.header {
+  position: absolute;
+  width: 1240px;
+  height: 125px;
+  left: 60px;
+  top: 31px;
+  background: #ffffff;
+  box-shadow: 0px 2px 2px rgba(73, 71, 71, 0.25);
+  border-radius: 24px;
+}
+
+.logo-title {
+  position: absolute;
+  width: 122px;
+  height: 25px;
+  left: 20px;
+  top: 50px;
+}
+
+.search-inp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 3px 12px;
+  gap: 10px;
+  position: absolute;
+  width: 300px;
+  height: 50px;
+  left: 170px;
+  top: 30px;
+  background: #f6f1f1;
+  border: none;
+  border-radius: 1px;
+}
+
+.search-inp:hover {
+  outline: 0.5px solid rgb(134, 182, 197);
+}
+
+.home-icon {
+  position: absolute;
+  left: 43%;
+  right: 12.5%;
+  top: 40%;
+  bottom: 12.5%;
+  margin-right: 180px;
+}
+
+.vector2-icon {
+  position: absolute;
+  left: 54.3%;
+  right: 12.5%;
+  top: 40%;
+  bottom: 12.5%;
+  margin-right: 180px;
+}
+
+.vector3-icon {
+  position: absolute;
+  left: 70.5%;
+  right: 12.5%;
+  top: 40%;
+  bottom: 12.5%;
+  margin-right: 180px;
+}
+
+.navbar-menu {
+  position: absolute;
+  left: 42%;
+  right: 12.5%;
+  top: 30%;
+  bottom: 12.5%;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.navbar-item {
+  margin-right: 90px;
+  cursor: pointer;
+  font-family: "Roboto";
+  font-size: 14px;
+}
+
+.btn-voiti {
+  /* display: flex; */
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+  position: absolute;
+  width: 79px;
+  height: 50px;
+  left: 90%;
+  top: 40px;
+  background: #9dbaf3;
+  border-radius: 8px;
+  border: none;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.btn-voiti:hover {
+  box-shadow: 0 0 4px rgb(25, 19, 80);
+  transition: 0.3s;
+}

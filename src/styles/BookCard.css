@@ -1,0 +1,111 @@
+.title-TopKnigi {
+  position: absolute;
+  left: 4.8%;
+  right: 16%;
+  top: 165px;
+  font-family: "Montserrat";
+  font-size: 34px;
+  line-height: 41px;
+}
+
+.cards {
+  display: flex;
+  align-content: space-around;
+}
+
+.card {
+  position: absolute;
+  width: 1240px;
+  height: 360px;
+  left: 60px;
+  top: 240px;
+  background: #ffffff;
+  box-shadow: 0px 2px 2px rgba(73, 71, 71, 0.25);
+  border-radius: 24px;
+}
+
+.img-book {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 10px;
+  width: 227px;
+  height: 235.32px;
+  left: 50px;
+  top: 250px;
+  border-radius: 8px 8px 0px 0px;
+}
+
+.gray-fon {
+  position: absolute;
+  width: 227px;
+  height: 283px;
+  left: 20px;
+  top: 37px;
+  background: #cdcdcd;
+  border-radius: 8px 8px 8px 8px;
+}
+
+.like {
+  position: absolute;
+  left: 80.33%;
+  right: 8.33%;
+  top: 86%;
+  bottom: 12.82%;
+}
+
+.title-book {
+  position: absolute;
+  width: 700px;
+  height: 154px;
+  left: 265px;
+  top: 30px;
+
+  font-family: "Montserrat";
+  font-style: normal;
+  /* font-weight: 600; */
+  font-size: 18px;
+  line-height: 22px;
+  color: #000000;
+}
+
+.name {
+  position: absolute;
+  top: 25px;
+}
+
+.btn-read {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+
+  position: absolute;
+  width: 260px;
+  height: 51px;
+  left: 265px;
+  top: 268px;
+  color: white;
+  font-size: 16px;
+
+  background: #9dbaf3;
+  border-radius: 8px;
+  border: none;
+}
+
+.vectorIzbran {
+  position: absolute;
+  left: 44%;
+  right: 20.83%;
+  top: 76%;
+  bottom: 8.33%;
+
+  /* border: 2px solid #000000; */
+}
+
+.saveDown {
+  position: absolute;
+  width: 54px;
+  height: 54px;
+  left: 1170px;
+  top: 25px;
+}

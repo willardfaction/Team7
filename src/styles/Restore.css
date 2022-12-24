@@ -1,12 +1,28 @@
+.fon {
+  position: absolute;
+  width: 1400px;
+  height: 1000px;
+  background: #33333393;
+  bottom: 100px;
+  /* opacity: 0.7; */
+  z-index: 1;
+}
+
 .restore-form {
   position: absolute;
   width: 400px;
   height: 545px;
-  background: #f1eaea;
+  background: white;
   border-radius: 8px;
   justify-content: center;
   left: 37%;
   top: 40px;
+}
+
+.close {
+  position: relative;
+  left: 50%;
+  top: 8px;
 }
 
 .title-restore {
@@ -14,26 +30,21 @@
   width: 400px;
   height: 545px;
   left: 20px;
-  top: 5px;
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 600;
+  top: 40px;
+  font-family: "Roboto";
   font-size: 35px;
-  line-height: 51px;
-  color: #000000;
 }
 
-.title-email {
+.title-email2 {
   position: absolute;
   width: 400px;
   height: 545px;
   left: 20px;
-  top: 85px;
-  font-family: "Montserrat";
+  top: 150px;
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
-  font-size: 17px;
-  line-height: 22px;
+  font-size: 15px;
   color: #000000;
 }
 
@@ -46,21 +57,21 @@
   gap: 10px;
   position: absolute;
   width: 339px;
-  height: 30px;
+  height: 25px;
   left: 20px;
-  top: 135px;
+  top: 195px;
   background: #e3e3e3;
   border-radius: 4px;
   border: none;
 }
 
-.title-password {
+.title-password2 {
   position: absolute;
   width: 185px;
   height: 22px;
   left: 20px;
-  top: 185px;
-  font-family: "Montserrat";
+  top: 245px;
+  font-family: "Roboto";
   font-weight: 400;
   font-size: 15px;
   /* line-height: 22px; */
@@ -75,9 +86,9 @@
   gap: 10px;
   position: absolute;
   width: 339px;
-  height: 30px;
+  height: 25px;
   left: 20px;
-  top: 235px;
+  top: 290px;
   background: #e3e3e3;
   border-radius: 4px;
   border: none;
@@ -95,7 +106,7 @@
   width: 359px;
   height: 50px;
   left: 20px;
-  top: 338px;
+  top: 365px;
   background: #9dbaf3;
   color: white;
   font-size: 16px;
