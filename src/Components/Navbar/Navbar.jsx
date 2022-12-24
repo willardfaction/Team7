@@ -88,12 +88,12 @@ const Navbar = () => {
               onChange={(e) => setSearchValue(e.target.value)}
             />
         </Search>
-        {searchArray ? searchArray.map((item) => (
+        {/* {searchArray ? searchArray.map((item) => (
           <div className='search'>
           <SearchCard obj = {item} />
           </div>
         ))
-        :null}
+        :null} */}
 
           <img src={home} alt="home" className="home-icon" onClick={() => navigate("/")}/>
           <img src={vector2} alt="vector2" className="vector2-icon" onClick={() => navigate("/person")}/>
@@ -109,10 +109,10 @@ const Navbar = () => {
               Библиотека
             </li>
         </ul>
-        {/* {currentUser ?
+        {currentUser ?
           <div className='btn-voi'><img className='btn-img'   src={user.avatar_url} />
           <span>{currentUser}</span></div>
-        : <button className='btn-voiti' onClick={() => navigate("/login")}>Войти</button>} */}
+        : <button className='btn-voiti' onClick={() => navigate("/login")}>Войти</button>}
       </div>
     </div>
   )

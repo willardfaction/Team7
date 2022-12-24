@@ -9,11 +9,12 @@ import PersonPage from "./components/pages/PersonPage";
 import LibraryPage from "./components/pages/LibraryPage";
 import DetailsPage from "./components/pages/DetailsPage";
 import BookCard from "./components/BookCard";
+import BookList from "./components/BookList";
 
 const PAGES_ROUTES = [
   {
     link: "/",
-    // element: <BookList />,
+    element: <BookList />,
     id: 1,
   },
   {
