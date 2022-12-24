@@ -1,10 +1,12 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import BookList from '../BookList';
+import Navbar from '../Navbar/Navbar';
 
 const PersonPage = () => {
   return (
     <div>
-      PersonPage <Link to="/">Home</Link>
+      <Navbar/>
+      <BookList/>
     </div>
   )
 }

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Routes, Route } from "react-router-dom"
-import Navbar from './components/Navbar/Navbar';
 import RegisterPage from './components/pages/RegisterPage';
 import LoginPage from './components/pages/LoginPage';
 import RestPage from './components/pages/RestPage';
@@ -9,11 +8,14 @@ import PersonPage from './components/pages/PersonPage';
 import LibraryPage from './components/pages/LibraryPage';
 import DetailsPage from './components/pages/DetailsPage';
 import TopBookPage from './components/pages/TopBookPage';
+import HomePage from './components/pages/HomePage';
+import ModalkaDownBook from './components/ModalkaDownBook';
+import ModalkaEditBook from './components/ModalkaEditBook';
 
 const PAGES_ROUTES = [
     {
         link: "/",
-        element: <Navbar />,
+        element: <HomePage />,
         id: 1,
       },
       {
@@ -55,6 +57,16 @@ const PAGES_ROUTES = [
         link: "/topbook",
         element: <TopBookPage />,
         id: 9,
+      },
+      {
+        link: "/downbook",
+        element: <ModalkaDownBook />,
+        id: 10,
+      },
+      {
+        link: "/editbook",
+        element: <ModalkaEditBook />,
+        id: 11,
       },
 ]
 

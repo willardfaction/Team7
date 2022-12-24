@@ -64,6 +64,11 @@
   background: #e3e3e3;
   border-radius: 4px;
   border: none;
+  border: 0.5px solid rgb(223, 216, 216);
+}
+
+.inp-email-voiti:hover {
+  outline: 0.5px solid rgb(118, 118, 186);
 }
 
 .title-password-voiti {
@@ -91,6 +96,11 @@
   background: #e3e3e3;
   border-radius: 4px;
   border: none;
+  border: 0.5px solid rgb(223, 216, 216);
+}
+
+.inp-password-voiti:hover {
+  outline: 0.5px solid rgb(118, 118, 186);
 }
 
 .forgot-pass {

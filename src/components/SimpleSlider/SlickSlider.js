@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
@@ -7,6 +8,8 @@ import "../../styles/SlickSlider.css"
 import star from '../../img/star.png'
 
 const SlickSlider = () => {
+  const navigate = useNavigate();
+
   const settings = {
     dots: true,
     infinite: false,
@@ -57,7 +60,7 @@ const SlickSlider = () => {
         <div className='card-bottom'>
           <p className='number'>4</p>
           <img src={star} alt={star} className="star"/>
-          <button className='btn-read'>Посмотреть</button>
+          <button className='btn-read' onClick={() => navigate("/detail")}>Посмотреть</button>
         </div>
       </div>
       ))}
