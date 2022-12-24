@@ -1,14 +1,15 @@
 .fon {
   position: absolute;
   width: 1400px;
-  height: 1000px;
+  height: 1100px;
   background: #33333393;
+  bottom: 100px;
   /* opacity: 0.7; */
   z-index: 1;
 }
 
 .register-form {
-  font-family: 'Roboto';
+  font-family: "Roboto";
   position: relative;
   width: 400px;
   height: 545px;
@@ -31,7 +32,7 @@
   height: 545px;
   left: 20px;
   top: 5px;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 600;
   font-size: 35px;
@@ -45,7 +46,7 @@
   height: 545px;
   left: 20px;
   top: 55px;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   /* font-style: normal; */
   /* font-weight: 400; */
   font-size: 15px;
@@ -76,7 +77,7 @@
   height: 545px;
   left: 20px;
   top: 170px;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   /* font-style: normal; */
   /* font-weight: 400; */
   font-size: 15px;
@@ -107,7 +108,7 @@
   height: 545px;
   left: 20px;
   top: 256px;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   /* font-weight: 400; */
   font-size: 15px;
   /* line-height: 22px; */
