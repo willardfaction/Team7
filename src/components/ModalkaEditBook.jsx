@@ -13,7 +13,7 @@ const ModalkaEditBook = () => {
     <DetailsBook/>
     <div className='fon-m'>
     <div className="download-form">
-      <CloseIcon className='close2' style={{position: 'relative', left: '890px', top: '10px'}} onClick={() => navigate("/person")}/>
+      <CloseIcon className='close2' style={{position: 'relative', left: '890px', top: '10px'}} onClick={() => navigate("/detail")}/>
       <div className='card-top-fon'>
       <img src={book} alt='book' className='book-down'/>
       <button className='save-btn'>Изменить фото</button>

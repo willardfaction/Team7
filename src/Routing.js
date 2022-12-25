@@ -11,6 +11,7 @@ import TopBookPage from './components/pages/TopBookPage';
 import HomePage from './components/pages/HomePage';
 import ModalkaDownBook from './components/ModalkaDownBook';
 import ModalkaEditBook from './components/ModalkaEditBook';
+import EditProfilPage from './components/pages/EditProfilPage';
 
 const PAGES_ROUTES = [
     {
@@ -67,6 +68,11 @@ const PAGES_ROUTES = [
         link: "/editbook",
         element: <ModalkaEditBook />,
         id: 11,
+      },
+      {
+        link: "/editprofil",
+        element: <EditProfilPage />,
+        id: 12,
       },
 ]
 

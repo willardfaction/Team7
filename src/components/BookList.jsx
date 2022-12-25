@@ -57,7 +57,7 @@ const BookList = () => {
       </div>
       <div className='data-person'>
       <img src={person} alt='profil' className='person'/>
-      <img src={editprof} alt='profil' className='edit-prof' onClick={() => navigate("/")}/>
+      <img src={editprof} alt='profil' className='edit-prof' onClick={() => navigate("/editprofil")}/>
       <div className='data-title'>
         <span className='data-title2'>Логин:</span> <span >IvanI</span><br/>
         <span className='data-title2'>Имя:</span> <span >Иван</span><br/>

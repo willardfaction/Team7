@@ -12,7 +12,7 @@
 .edit-prof2 {
   position: relative;
   left: 1155px;
-  top: 110px;
+  top: 155px;
 }
 
 .delete {
@@ -30,6 +30,12 @@
   top: 40px;
   filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
   border-radius: 8px;
+}
+
+.bookmarkBorderIcon {
+  position: relative;
+  top: 20px;
+  left: 1170px;
 }
 
 .btn-read2 {
@@ -92,7 +98,7 @@
 
 .starr {
   position: relative;
-  margin-left: 335px;
+  margin-left: 310px;
   top: 355px;
 }
 
@@ -126,4 +132,125 @@
   left: 350px;
   top: 20px;
   width: 700px;
+}
+
+.title-reviews {
+  position: relative;
+  left: 86px;
+  top: 620px;
+}
+
+.avatar-item {
+  position: relative;
+  left: 85px;
+  top: 630px;
+}
+
+.name-login {
+  position: relative;
+  top: 590px;
+  left: 140px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.data {
+  position: relative;
+  top: 576px;
+  left: 140px;
+  font-size: 14px;
+}
+
+.reviews {
+  position: relative;
+  left: 140px;
+  width: 900px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.title-reviews2 {
+  position: relative;
+  left: 86px;
+  top: 270px;
+  font-size: 20px;
+}
+
+.fon-otzyv {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 12px 0px 0px;
+  position: absolute;
+  width: 1195px;
+  height: 50px;
+  left: 83px;
+  top: 1115px;
+  background: #e9e9e9;
+  border-radius: 8px;
+}
+
+.inpput-reviews {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 10px;
+  gap: 10px;
+  position: absolute;
+  width: 600px;
+  height: 18px;
+  left: 70px;
+  top: 12px;
+  background: white;
+  border: none;
+  border: 1px solid rgba(0, 0, 0, 0.45);
+  border-radius: 8px;
+}
+
+.inpput-reviews:hover {
+  outline: 0.5px solid rgb(118, 118, 186);
+}
+
+.div-rating {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+  position: absolute;
+  width: 200px;
+  height: 18px;
+  left: 700px;
+  top: 12px;
+  background: white;
+  border: none;
+  border-radius: 8px;
+}
+
+.box {
+  position: absolute;
+  z-index: 1;
+}
+
+.btn-publish {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 240px;
+  height: 40px;
+  left: 930px;
+  background: #9dbaf3;
+  color: white;
+  font-size: 16px;
+  border: 1px solid #9dbaf3;
+  border-radius: 8px;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+.btn-publish:hover {
+  box-shadow: 0 0 4px rgb(10, 10, 10);
+  transition: 0.3s;
 }
