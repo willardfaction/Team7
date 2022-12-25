@@ -14,6 +14,7 @@ const AuthContextProvider = ({ children }) => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useState();
+  const [pass, setPass] = useState("");
 
   const config = {
     headers: { 'Content-Type': 'application/json' }
@@ -85,8 +86,9 @@ const AuthContextProvider = ({ children }) => {
   }
 
 
-  async function handleLogin(formData, logInpValue, navigate,) {
+  async function handleLogin(formData, logInpValue,passwordInpValue, navigate,) {
     setLoading(true);
+    setPass(passwordInpValue);
     try {
       const res = await axios.post(`${API}/accounts/login/`, formData, config);
       console.log(res);
@@ -153,6 +155,7 @@ const AuthContextProvider = ({ children }) => {
         currentUser,
         error,
         user,
+        pass,
 
         handleRegister,
         setError,

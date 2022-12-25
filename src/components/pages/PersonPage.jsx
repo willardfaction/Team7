@@ -8,8 +8,6 @@ import { authContext } from '../contexts/authContext';
 
 const PersonPage = () => {
     const { currentUser, user } = useContext(authContext);
-    console.log(currentUser);
-    console.log(user);
 
     const navigate = useNavigate();
     return (<>
@@ -61,7 +59,7 @@ const PersonPage = () => {
                 <div className='data-person'>
                
                 <img src={user.avatar_url} alt='profil' className='person'/>
-          <img src={editprof} alt='profil' className='edit-prof' onClick={() => navigate("/")}/>
+          <img src={editprof} alt='profil' className='edit-prof' onClick={() => navigate("/editProfile")}/>
           <div className='data-title'>
                         <span className='data-title2'>Логин:</span> <span >{user.username}</span><br/>
                         {user.name ? <><span className='data-title2'>Имя:</span> <span >{user.name}</span><br/> </>: null} 

@@ -28,7 +28,7 @@ const LoginPage = () => {
       let formData = new FormData();
       formData.append('email', logInpValue);
       formData.append('password', passwordInpValue);
-      handleLogin(formData, logInpValue, navigate);
+      handleLogin(formData, logInpValue,passwordInpValue, navigate);
     };
 
    

@@ -13,6 +13,7 @@ import RestPage from "./components/pages/RestPage";
 import RestorePage from "./components/pages/RestorePage";
 import PersonPage from "./components/pages/PersonPage";
 import DetailsBook from "./components/pages/DetailsBook";
+import EditProfil from "./components/pages/EditProfil";
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
             <Route path="/restore" element={<RestorePage />} />
             <Route path="/personpage" element={<PersonPage />} />
             <Route path="/detailsbook/:id" element={<DetailsBook />} />
+            <Route path="/editProfile" element={<EditProfil />} />
             {/* <Routing /> */}
           </Routes>
         </AuthContextProvider>
