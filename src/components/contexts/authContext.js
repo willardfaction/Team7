@@ -5,7 +5,8 @@ import { useNavigate } from "react-router-dom";
 export const authContext = React.createContext();
 export const useAuth = () => useContext(authContext);
 
-const API = "http://elibrary-env.eba-8chmdsyi.us-east-1.elasticbeanstalk.com/api";
+const API =
+  "http://elibrary-env.eba-8chmdsyi.us-east-1.elasticbeanstalk.com/api";
 
 const AuthContextProvider = ({ children }) => {
   const navigate = useNavigate();
@@ -15,31 +16,81 @@ const AuthContextProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useState();
   const [pass, setPass] = useState("");
+  const [book, setBook] = useState("");
 
   const config = {
-    headers: { 'Content-Type': 'application/json' }
-};
+    headers: {
+      Authorization: "Bearer " + localStorage.getItem("token"),
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Headers":
+        "Origin, X-Requested-With, Content-Type, Accept, *",
+    },
+  };
+  const config1 = {
+    headers: {
+      Authorization: "Bearer " + localStorage.getItem("token"),
+      "Content-Type": null,
+    },
+  };
+
+  const multipartFileConfig = {
+    headers: {
+      Authorization: "Bearer " + localStorage.getItem("token"),
+      "Content-Type": "multipart/form-data",
+    },
+  };
 
   async function handleRegister(formData, event) {
     try {
-   
-      const res = await axios.post(`${API}/accounts/register`,   formData, config );
-   
+      const res = await axios.post(
+        `${API}/accounts/register`,
+        formData,
+        config
+      );
+
       console.log(res);
-      snackbar()
+      snackbar();
       setTimeout(() => {
-       navigate('/login')
+        navigate("/login");
       }, 3000);
     } catch (err) {
       console.log(err);
-      snackbar_error()
+      snackbar_error();
       setError(Object.values(err.response.data).flat(2));
     } finally {
       setLoading(false);
     }
   }
 
-  
+  async function handleEdit(formData, event) {
+    try {
+      const res = await axios.post(
+        `${API}/accounts/edit`,
+        formData,
+        multipartFileConfig
+      );
+      const user_obj = {
+        id: res.data.id,
+        username: res.data.username,
+        avatar_url: res.data.avatar,
+        role: res.data.role,
+        email: res.data.email,
+      };
+      setUser(user_obj);
+      snackbar();
+      setTimeout(() => {
+        navigate("/personPage");
+      }, 1000);
+    } catch (err) {
+      console.log("error->" + err);
+      // snackbar_error()
+      // setError(Object.values(err.response.data).flat(2));
+    } finally {
+      setLoading(false);
+    }
+  }
+
   async function getOneUser(email) {
     try {
       const res = await axios(`${API}/account/user/${email}/`);
@@ -76,33 +127,40 @@ const AuthContextProvider = ({ children }) => {
   function snackbar() {
     var x = document.getElementById("snackbar");
     x.className = "show";
-    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+    setTimeout(function () {
+      x.className = x.className.replace("show", "");
+    }, 3000);
   }
 
   function snackbar_error() {
     var x = document.getElementById("snackbar_error");
     x.className = "show";
-    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+    setTimeout(function () {
+      x.className = x.className.replace("show", "");
+    }, 3000);
   }
 
-
-  async function handleLogin(formData, logInpValue,passwordInpValue, navigate,) {
+  async function handleLogin(
+    formData,
+    logInpValue,
+    passwordInpValue,
+    navigate
+  ) {
     setLoading(true);
     setPass(passwordInpValue);
     try {
       const res = await axios.post(`${API}/accounts/login/`, formData, config);
-      console.log(res);
-      localStorage.setItem("tokens", JSON.stringify(res.data));
+      localStorage.setItem("token", res.data.token);
       localStorage.setItem("email", logInpValue);
       setCurrentUser(logInpValue);
       setUser(res.data);
-      snackbar()
+      snackbar();
       setTimeout(() => {
-        navigate('/')
-       }, 3000);
+        navigate("/");
+      }, 1000);
     } catch (err) {
       console.log(err);
-      snackbar_error()
+      snackbar_error();
       setError([err.response.data.detail]);
     } finally {
       setLoading(false);
@@ -147,7 +205,18 @@ const AuthContextProvider = ({ children }) => {
     localStorage.removeItem("tokens");
     localStorage.removeItem("email");
     setCurrentUser(false);
+    navigate("/");
   }
+
+  // async function myBook() {
+  //   try {
+  //     const res = await axios(`${API}/bookmarks`, config);
+  //     setBook(res.data);
+  //     console.log(book);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // }
 
   return (
     <authContext.Provider
@@ -156,6 +225,7 @@ const AuthContextProvider = ({ children }) => {
         error,
         user,
         pass,
+        
 
         handleRegister,
         setError,
@@ -166,7 +236,10 @@ const AuthContextProvider = ({ children }) => {
         passwordRecovery,
         getOneUser,
         setUser,
-      }}>
+        handleEdit,
+        
+      }}
+    >
       {children}
     </authContext.Provider>
   );
