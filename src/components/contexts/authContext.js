@@ -208,15 +208,15 @@ const AuthContextProvider = ({ children }) => {
     navigate("/");
   }
 
-  // async function myBook() {
-  //   try {
-  //     const res = await axios(`${API}/bookmarks`, config);
-  //     setBook(res.data);
-  //     console.log(book);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // }
+  async function myBook() {
+    try {
+      const res = await axios(`${API}/bookmarks`, config);
+      setBook(res.data);
+      console.log(book);
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   return (
     <authContext.Provider
@@ -225,7 +225,7 @@ const AuthContextProvider = ({ children }) => {
         error,
         user,
         pass,
-        
+        book,
 
         handleRegister,
         setError,
@@ -237,7 +237,7 @@ const AuthContextProvider = ({ children }) => {
         getOneUser,
         setUser,
         handleEdit,
-        
+        myBook,
       }}
     >
       {children}

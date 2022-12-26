@@ -7,17 +7,21 @@ import logout from "../../images/icons/logout.png"
 import { authContext } from '../contexts/authContext';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
-import Books from '../Main/Books';
-import "../Main/TopBooks/topbooks.scss"
 
 
 
 const PersonPage = () => {
-  const { currentUser, user, handleLogout } = useContext(authContext);
+  const { currentUser, user, handleLogout, myBook, book } = useContext(authContext);
   const [key, setKey] = useState('myBook');
-  // useEffect(() => (
-  //   myBook()
-  // ),[currentUser])
+  
+  useEffect(() => {
+    if (currentUser) {
+      myBook();
+  }  
+  }
+    , [])
+  
+  
     const navigate = useNavigate();
     return (<>
       <div>
@@ -29,11 +33,19 @@ const PersonPage = () => {
         <Tab eventKey="myBook" title="Мои книги">
         <div className='my-book'>
           <a className='download-book' href="/downbook">+Загрузить книгу</a>
-<div className='card-book1'>
-          <ul className='books__items'>
-               
-                </ul>
-                </div>
+{ book ? book.map((item)=>( <div className='card-book1'>
+             <div className='card-top'>
+              <img src={item.image_url} alt='book'/>
+    <h1 style={{ marginTop: '7%' }}>{item.name}</h1>
+    <p style={{ display: 'flex', justifyContent: 'center', fontSize: '13px', bottom: '12px', position: 'relative' }}>{item.author}</p>
+             </div>
+            <div className='card-bottom'>
+              <p className='number'>4</p>
+              <img src={star} alt={star} className="star"/>
+              <button className='btn-read' onClick={() => navigate("/detail")}>Посмотреть</button>
+            </div>
+          </div>)) : null}
+          
           </div>
         </Tab>
         <Tab eventKey="saveBook" title="Сохраненные">
