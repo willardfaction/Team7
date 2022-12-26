@@ -18,7 +18,7 @@
   .delete {
     width: 22px;
     position: absolute;
-    left: 95%;
+    left: 9%;
     top: 78%;
   }
   
@@ -84,7 +84,7 @@
     align-items: center;
     position: absolute;
     left: 192px;
-    top: 340px;
+    top: 355px;
     margin-left: 153px;
     font-size: 20px;
     font-weight: 500;
@@ -109,21 +109,27 @@
     position: relative;
     left: 346px;
     top: 50px;
-    font-size: 16px;
+    font-size: 20px;
   }
   .data_title2 {
     font-weight: 600;
   }
   
-  .title_name {
-    position: relative;
+  .t_name {
+    position: absolute;
+   
     left: 350px;
-    top: 20px;
+    top: 40px;
+    font-family: "Roboto";
+    font-weight: 600;
+    font-size: 25px;
+   
   }
   
   .title_p {
     position: relative;
     left: 350px;
-    top: 20px;
+    top: 45px;
     width: 700px;
+    font-size: 20px;
   }

@@ -3,6 +3,7 @@ import "../../styles/SearchCard.css"
 import { styled } from '@mui/material/styles';
 import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
+import { Link,useNavigate } from 'react-router-dom';
 
 const StyledRating = styled(Rating)({
   '& .MuiRating-iconFilled': {
@@ -13,22 +14,24 @@ const StyledRating = styled(Rating)({
   },
 });
 
-const SearchCard = ({obj}) => {
+const SearchCard = ({ obj }) => {
+  
+  const navigate = useNavigate();
   return (
     <>
+      <Link to={'/detailsbook/'+obj.id}>
       <div className='cards'>
-        <div className='card'>
-            <div className='gray-fon'>
+        <div  className='сard p-1' style={{ display: "flex", justifyContent: 'start'}}>
+            
             <img className='img11' src={obj.image_url} style={{ width: 50, height:50 }} alt="Frame1" />
-            </div>
-            <div className='title-book'>
-                      <h3 className='h3'>{obj.name}<br/>
-            </h3>
-            {/* <p className='name'>Алексей Гончаров</p> */}
-                      <p className='p'>{obj.author }</p>
-            </div>
+          <div><span>{obj.name}</span><br/>
+                <span>{obj.author }</span></div>
+            
+    
+           
         </div>
-      </div>
+        </div>
+        </Link>
     </>
   )
 }

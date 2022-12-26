@@ -1,12 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import star from "../../images/icons/staricon.png";
-import "../../styles/PersonPage.css";
-import editprof from "../../images/icons/editprof.png"
-import logout from "../../images/icons/logout.png"
-import { authContext } from '../contexts/authContext';
+import star from "../../../images/icons/staricon.png";
+import "../../../styles/PersonPage.css";
+import editprof from "../../../images/icons/editprof.png"
+import logout from "../../../images/icons/logout.png"
+import { authContext } from '../../contexts/authContext';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
+
 
 
 
