@@ -18,7 +18,25 @@ const AuthContextProvider = ({ children }) => {
   const [book, setBook] = useState('');
 
   const config = {
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      Authorization: 'Bearer ' + localStorage.getItem('token'),
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, *',
+    },
+  };
+  const config1 = {
+    headers: {
+      Authorization: 'Bearer ' + localStorage.getItem('token'),
+      'Content-Type': null,
+    },
+  };
+
+  const multipartFileConfig = {
+    headers: {
+      Authorization: 'Bearer ' + localStorage.getItem('token'),
+      'Content-Type': 'multipart/form-data',
+    },
   };
 
   async function handleRegister(formData, event) {
@@ -39,6 +57,30 @@ const AuthContextProvider = ({ children }) => {
     }
   }
 
+  async function handleEdit(formData, event) {
+    try {
+      const res = await axios.post(`${API}/accounts/edit`, formData, multipartFileConfig);
+      const user_obj = {
+        id: res.data.id,
+        username: res.data.username,
+        avatar_url: res.data.avatar,
+        role: res.data.role,
+        email: res.data.email,
+      };
+      setUser(user_obj);
+      snackbar();
+      setTimeout(() => {
+        navigate('/personPage');
+      }, 1000);
+    } catch (err) {
+      console.log('error->' + err);
+      // snackbar_error()
+      // setError(Object.values(err.response.data).flat(2));
+    } finally {
+      setLoading(false);
+    }
+  }
+
   async function getOneUser(email) {
     try {
       const res = await axios(`${API}/account/user/${email}/`);
@@ -49,11 +91,11 @@ const AuthContextProvider = ({ children }) => {
     }
   }
 
-  async function passwordRecoveryFinal(email, navigate) {
+  async function emailRecovery(email, navigate) {
     try {
-      const res = await axios.post(`${API}/accounts/password/reset/{token}/`, email, config);
+      const res = await axios.post(`${API}/account/restore-password/`, email);
       console.log(res);
-      navigate('/');
+      navigate('/recovery/email/password');
     } catch (err) {
       console.log(err);
     }
@@ -61,15 +103,11 @@ const AuthContextProvider = ({ children }) => {
 
   async function passwordRecovery(passwordRecoveryObj, navigate) {
     try {
-      const res = await axios.post(`${API}/accounts/password/reset/`, passwordRecoveryObj, config);
+      const res = await axios.post(`${API}/account/set-restored-password/`, passwordRecoveryObj);
       console.log(res);
-      snackbar();
-      setTimeout(() => {
-        navigate('/');
-      }, 3000);
+      navigate('/');
     } catch (err) {
       console.log(err);
-      snackbar_error();
     }
   }
 
@@ -94,15 +132,14 @@ const AuthContextProvider = ({ children }) => {
     setPass(passwordInpValue);
     try {
       const res = await axios.post(`${API}/accounts/login/`, formData, config);
-      console.log(res);
-      localStorage.setItem('tokens', JSON.stringify(res.data));
+      localStorage.setItem('token', res.data.token);
       localStorage.setItem('email', logInpValue);
       setCurrentUser(logInpValue);
       setUser(res.data);
       snackbar();
       setTimeout(() => {
         navigate('/');
-      }, 3000);
+      }, 1000);
     } catch (err) {
       console.log(err);
       snackbar_error();
@@ -150,6 +187,7 @@ const AuthContextProvider = ({ children }) => {
     localStorage.removeItem('tokens');
     localStorage.removeItem('email');
     setCurrentUser(false);
+    navigate('/');
   }
 
   async function myBook() {
@@ -169,16 +207,18 @@ const AuthContextProvider = ({ children }) => {
         error,
         user,
         pass,
+        book,
 
         handleRegister,
         setError,
         handleLogin,
         checkAuth,
         handleLogout,
-        passwordRecoveryFinal,
+        emailRecovery,
         passwordRecovery,
         getOneUser,
         setUser,
+        handleEdit,
         myBook,
       }}
     >
