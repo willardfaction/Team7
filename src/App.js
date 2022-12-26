@@ -6,12 +6,11 @@ import Header from "./components/Header";
 import Main from "./components/Main";
 import Private from "./pages/Private";
 import BookContextProvider from "./components/contexts/bookContext";
-import SearchCard from "./components/pages/SearchCard";
 import LoginPage from "./components/pages/LoginPage";
 import RegisterPage from "./components/pages/RegisterPage";
 import RestPage from "./components/pages/RestPage";
 import RestorePage from "./components/pages/RestorePage";
-import PersonPage from "./components/pages/PersonPage";
+import PersonPage from "./components/pages/PersonPage/PersonPage";
 import DetailsBook from "./components/pages/DetailsBook";
 import EditProfil from "./components/pages/EditProfil";
 

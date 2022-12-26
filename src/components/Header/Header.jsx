@@ -7,12 +7,11 @@ import library from '../../images/icons/libraryicon.png';
 import logo from '../../images/img/StudyLab.png';
 import search from '../../images/icons/searchicon.png';
 import './header.scss';
-import SearchIcon from '@mui/icons-material/Search';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import { bookContext } from '../contexts/bookContext';
-import SearchCard from '../pages/SearchCard';
 import { authContext } from '../contexts/authContext';
+import '../../styles/SearchCard.css';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -67,6 +66,11 @@ function Header() {
     searchBook(searchValue);
   }, [searchValue]);
 
+  function clickSearch(obj) {
+    navigate('/detailsbook/' + obj);
+    setSearchValue('');
+  }
+
   return (
     <header className='header'>
       <div className='header__logo'>
@@ -82,9 +86,23 @@ function Header() {
         {searchValue ? (
           <div className='search'>
             <ul>
-              {searchArray.map((item) => (
+              {searchArray.map((obj) => (
                 <li>
-                  <SearchCard obj={item} />
+                  <div className='cards' onClick={() => clickSearch(obj.id)}>
+                    <div className='сard p-1' style={{ display: 'flex', justifyContent: 'start' }}>
+                      <img
+                        className='img11'
+                        src={obj.image_url}
+                        style={{ width: 50, height: 50 }}
+                        alt='Frame1'
+                      />
+                      <div>
+                        <span>{obj.name}</span>
+                        <br />
+                        <span>{obj.author}</span>
+                      </div>
+                    </div>
+                  </div>
                 </li>
               ))}
             </ul>
