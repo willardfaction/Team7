@@ -41,7 +41,7 @@
     align-items: center;
     position: absolute;
     width: 240px;
-    height: 40px;
+    height: 30px;
     left: 80px;
     top: 320px;
     background: #9dbaf3;
@@ -50,6 +50,13 @@
     border: 1px solid #9dbaf3;
     border-radius: 8px;
     transition: 0.3s;
+  }
+  .edited-file{
+    position: absolute;
+    background: #ebf5ff;
+    top: 350px;
+    left: 80px;
+    width: 240px;
   }
   .edited-btn:hover {
     box-shadow: 0 0 4px rgb(10, 10, 10);
@@ -63,7 +70,7 @@
     width: 240px;
     height: 40px;
     left: 80px;
-    top: 375px;
+    top: 385px;
     background: #9dbaf3;
     color: white;
     font-size: 16px;

@@ -16,7 +16,7 @@ const RegisterPage = () => {
     function snackbar_error() {
       var x = document.getElementById("snackbar_error");
       x.className = "show";
-      setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+      setTimeout(function(){ x.className = x.className.replace("show", ""); }, 1000);
     }
 
     function createUser() {

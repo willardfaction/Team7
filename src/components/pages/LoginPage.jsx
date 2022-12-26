@@ -4,6 +4,8 @@ import "../../styles/Login.css"
 import { useNavigate } from "react-router-dom";
 import CloseIcon from '@mui/icons-material/Close';
 import { authContext } from '../contexts/authContext';
+import TopBooks from '../Main/TopBooks/TopBooks';
+import NewBooks from '../Main/NewBooks/NewBooks';
 
 
 
@@ -17,7 +19,7 @@ const LoginPage = () => {
     function snackbar_error() {
       var x = document.getElementById("snackbar_error");
       x.className = "show";
-      setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+      setTimeout(function(){ x.className = x.className.replace("show", ""); }, 1000);
     }
 
     function loginUser() {
@@ -34,6 +36,7 @@ const LoginPage = () => {
    
   return (
     <>
+    
     <div className='fon' style={{background:"none"}}>
         <div className="login-form">
             <button className='close' style={{ left: '368px', top: '8px', border:'none', background:'none' }}

@@ -13,13 +13,20 @@ function TopBooks() {
     readTopBook(pageTop);
   }, [pageTop]);
 
+  console.log(topBooks);
+
   return (
     <div className='books'>
       <h2 className='books__title'>Топ книги</h2>
       <ul className='books__items'>
-        {topBooks ? topBooks.map((item) => <Books obj={item} />) : null}</ul>
-        {pageTop+1 == totalTop ? null :<img src={next} alt='next' className='next' onClick={(e) => setPageTop(pageTop+1)} />}
-      {pageTop > 0 ? <img src={back} alt='back' className='back' onClick={(e) => setPageTop(pageTop-1)} /> : null}
+        {topBooks ? topBooks.map((item) => <Books key={item.id} obj={item} />) : null}
+      </ul>
+      {pageTop + 1 == totalTop ? null : (
+        <img src={next} alt='next' className='next' onClick={(e) => setPageTop(pageTop + 1)} />
+      )}
+      {pageTop > 0 ? (
+        <img src={back} alt='back' className='back' onClick={(e) => setPageTop(pageTop - 1)} />
+      ) : null}
     </div>
   );
 }
