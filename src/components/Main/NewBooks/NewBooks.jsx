@@ -6,18 +6,19 @@ import back from '../../../images/icons/backslider.png';
 import './newbooks.scss';
 
 function NewBooks() {
-  const { newBook,newBooks } = useContext(bookContext);
+  const { newBook, newBooks } = useContext(bookContext);
 
   useEffect(() => {
     newBook();
   }, []);
-  const arr = [1, 2, 3, 4, 5];
+  console.log(newBooks);
   return (
     <div className='books'>
       <h2 className='books__title'>Новинки</h2>
       <ul className='books__items'>
-        {newBooks ? newBooks.map((item) => <Books obj={item} />) : null}</ul>
-        <img src={next} alt='next' className='next' />
+        {newBooks ? newBooks.content.map((item) => <Books obj={item} />) : null}
+      </ul>
+      <img src={next} alt='next' className='next' />
       <img src={back} alt='back' className='back' />
     </div>
   );
