@@ -103,13 +103,18 @@ const AuthContextProvider = ({ children }) => {
 
   async function passwordRecovery(passwordRecoveryObj, navigate) {
     try {
-      const res = await axios.post(`${API}/account/set-restored-password/`, passwordRecoveryObj);
+      const res = await axios.post(`${API}/accounts/password/reset/`, passwordRecoveryObj, config);
       console.log(res);
-      navigate('/');
+      snackbar();
+      setTimeout(() => {
+        navigate('/');
+      }, 3000);
     } catch (err) {
       console.log(err);
+      snackbar_error();
     }
   }
+
 
   function snackbar() {
     var x = document.getElementById('snackbar');
