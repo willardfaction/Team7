@@ -25,7 +25,7 @@ const Search = styled('div')(({ theme }) => ({
     width: '300px',
     backgroundColor: '#f6f1f1',
     top: '40px',
-    border: '1%'
+    border: '1%',
   },
 }));
 
@@ -40,56 +40,56 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
-color: 'inherit',
-'& .MuiInputBase-input': {
-  padding: theme.spacing(1, 1, 1, 0),
-  // vertical padding + font size from searchIcon
-  paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-  transition: theme.transitions.create('width'),
-  width: '100%',
-  [theme.breakpoints.up('sm')]: {
-    width: '12ch',
-    '&:focus': {
-      width: '20ch',
+  color: 'inherit',
+  '& .MuiInputBase-input': {
+    padding: theme.spacing(1, 1, 1, 0),
+    // vertical padding + font size from searchIcon
+    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+    transition: theme.transitions.create('width'),
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      width: '12ch',
+      '&:focus': {
+        width: '20ch',
+      },
     },
   },
-},
 }));
 
 function Header() {
   const pages = ['/', 'register', 'login'];
   const navigate = useNavigate();
   const { currentUser, user } = useContext(authContext);
-  const { searchArray,searchBook } = useContext(bookContext);
+  const { searchArray, searchBook } = useContext(bookContext);
   const [searchValue, setSearchValue] = useState('');
 
   useEffect(() => {
-    searchBook(searchValue)
-  }, [searchValue])
-  
-
+    searchBook(searchValue);
+  }, [searchValue]);
 
   return (
     <header className='header'>
       <div className='header__logo'>
         <img src={logo} alt='logo' />
-        <input type='search'    placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }} value={searchValue}
-              onChange={(e) => setSearchValue(e.target.value)}
-            />
+        <input
+          type='search'
+          placeholder='Search…'
+          value={searchValue}
+          onChange={(e) => setSearchValue(e.target.value)}
+        />
         <img className='logo__search' src={search} alt='seacrh' />
-           
-        {searchValue ? 
+
+        {searchValue ? (
           <div className='search'>
             <ul>
               {searchArray.map((item) => (
                 <li>
                   <SearchCard obj={item} />
-                </li> ))
-              }
+                </li>
+              ))}
             </ul>
           </div>
-        :null}  
+        ) : null}
       </div>
       <nav>
         <ul className='header__lists'>
@@ -107,14 +107,18 @@ function Header() {
           </NavLink>
         </ul>
       </nav>
-      
-      {currentUser ? 
-      <div className='btn-voi'><img className='btn-img'   src={user.avatar_url} /><br></br>
-          <span>{user.username}</span></div>
-        :
+
+      {currentUser ? (
+        <div className='btn-voi'>
+          <img className='btn-img' src={user.avatar_url} />
+          <br></br>
+          <span>{user.username}</span>
+        </div>
+      ) : (
         <button onClick={() => navigate('/login')} className='header__button'>
           Войти
-        </button>}
+        </button>
+      )}
     </header>
   );
 }
