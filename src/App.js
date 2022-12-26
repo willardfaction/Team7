@@ -1,5 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import Routing from './Routing';
 import AuthContextProvider from './components/contexts/authContext';
 import Header from './components/Header';
 import Main from './components/Main';
@@ -8,7 +9,7 @@ import LoginPage from './components/pages/LoginPage';
 import RegisterPage from './components/pages/RegisterPage';
 import RestPage from './components/pages/RestPage';
 import RestorePage from './components/pages/RestorePage';
-import PersonPage from './components/pages/PersonPage';
+import PersonPage from './components/pages/PersonPage/PersonPage';
 import DetailsBook from './components/pages/DetailsBook';
 import EditProfil from './components/pages/EditProfil';
 
