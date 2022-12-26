@@ -1,29 +1,30 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Books from '../Books';
 import next from '../../../images/icons/nextslider.png';
 import back from '../../../images/icons/backslider.png';
 import './topbooks.scss';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchBooks } from '../../../redux/reducer/addBooks';
 import { bookContext } from '../../contexts/bookContext';
 
 function TopBooks() {
-  const { readTopBook, topBooks } = useContext(bookContext);
+  const { readTopBook, topBooks, totalTop } = useContext(bookContext);
+  const [pageTop, setPageTop] = useState(0);
 
   useEffect(() => {
-    readTopBook();
-  }, []);
-
-  console.log(topBooks);
+    readTopBook(pageTop);
+  }, [pageTop]);
 
   return (
     <div className='books'>
       <h2 className='books__title'>Топ книги</h2>
       <ul className='books__items'>
-        {topBooks ? topBooks.content.map((item) => <Books obj={item} />) : null}
+        {topBooks ? topBooks.map((item) => <Books key={item.id} obj={item} />) : null}
       </ul>
-      <img src={next} alt='next' className='next' />
-      <img src={back} alt='back' className='back' />
+      {pageTop + 1 == totalTop ? null : (
+        <img src={next} alt='next' className='next' onClick={(e) => setPageTop(pageTop + 1)} />
+      )}
+      {pageTop > 0 ? (
+        <img src={back} alt='back' className='back' onClick={(e) => setPageTop(pageTop - 1)} />
+      ) : null}
     </div>
   );
 }

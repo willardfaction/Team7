@@ -9,6 +9,7 @@ const INIT_STATE = {
   books: null,
   bookDetails: null,
   pageTotalCount: 1,
+  pageTopCount: 1,
   searchRes: null,
   topBook: null,
   newBook:null
@@ -27,17 +28,20 @@ function reducer(prevState, action) {
     case "SEARCH_PRODUCT":
       return {
           ...prevState,
-          searchRes: action.payload.data
+        searchRes: action.payload.data,
+          
       };
       case "TOP_PRODUCT":
       return {
           ...prevState,
-          topBook: action.payload.data
+        topBook: action.payload.data.content,
+        pageTopCount: action.payload.data.totalPages
       };
       case "NEW_PRODUCT":
         return {
             ...prevState,
-            newBook: action.payload.data
+          newBook: action.payload.data.content,
+          pageTotalCount: action.payload.data.totalPages
           };
     default:
       return prevState;
@@ -59,7 +63,7 @@ const BookContextProvider = (props) => {
 
   // read book
   async function readBook() {
-    console.log("reading book");
+    // console.log("reading book");
     const readBookAPI =
       "http://elibrary-env.eba-8chmdsyi.us-east-1.elasticbeanstalk.com/api/books";
     const res = await axios(readBookAPI);
@@ -70,10 +74,10 @@ const BookContextProvider = (props) => {
   }
 
    // read Top book
-   async function readTopBook() {
-    console.log("reading book");
+   async function readTopBook(page) {
+    // console.log("reading book");
     const readBookAPI =
-      "http://elibrary-env.eba-8chmdsyi.us-east-1.elasticbeanstalk.com/api/books/top";
+      "http://elibrary-env.eba-8chmdsyi.us-east-1.elasticbeanstalk.com/api/books/top?page="+page;
     const res = await axios(readBookAPI);
     dispatch({
       type: "TOP_PRODUCT",
@@ -83,7 +87,7 @@ const BookContextProvider = (props) => {
   
   // read Search book
   async function searchBook(value) {
-    console.log("reading book");
+    // console.log("reading book");
     const readBookAPI =
       "http://elibrary-env.eba-8chmdsyi.us-east-1.elasticbeanstalk.com/api/books/search?value="+value;
     const res = await axios(readBookAPI);
@@ -93,11 +97,13 @@ const BookContextProvider = (props) => {
     });
   }
   // read New book
-  async function newBook() {
-    console.log("reading book");
+  async function newBook(page) {
+    // console.log("reading book");
     const readBookAPI =
-      "http://elibrary-env.eba-8chmdsyi.us-east-1.elasticbeanstalk.com/api/books/new";
+      "http://elibrary-env.eba-8chmdsyi.us-east-1.elasticbeanstalk.com/api/books/new?page="+page;
     const res = await axios(readBookAPI);
+
+
     dispatch({
       type: "NEW_PRODUCT",
       payload: res,
@@ -114,6 +120,8 @@ const BookContextProvider = (props) => {
     topBooks: state.topBook,
     booksArray: state.book,
     searchArray: state.searchRes,
+    totalPages: state.pageTotalCount,
+    totalTop: state.pageTopCount
     
   };
 

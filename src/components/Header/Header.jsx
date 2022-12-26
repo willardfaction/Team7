@@ -82,8 +82,8 @@ function Header() {
         {searchValue ? (
           <div className='search'>
             <ul>
-              {searchArray.map((item) => (
-                <li>
+              {searchArray.map((item, index) => (
+                <li key={index}>
                   <SearchCard obj={item} />
                 </li>
               ))}
@@ -97,7 +97,7 @@ function Header() {
             <img src={home} alt='homeicon' />
             <span>Главная</span>
           </NavLink>
-          <NavLink to={'/private'} className='list'>
+          <NavLink to={'/personpage'} className='list'>
             <img src={usericon} alt='usericon' />
             <span>Личный кабинет</span>
           </NavLink>
@@ -111,7 +111,8 @@ function Header() {
       {currentUser ? (
         <div className='btn-voi'>
           <img className='btn-img' src={user.avatar_url} />
-          <span>{currentUser}</span>
+          <br></br>
+          <span>{user.username}</span>
         </div>
       ) : (
         <button onClick={() => navigate('/login')} className='header__button'>
